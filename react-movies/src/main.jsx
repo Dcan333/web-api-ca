@@ -19,7 +19,9 @@ import PopularMoviesPage from "./pages/popularMoviesPage";
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from "./theme";
-
+import AuthContextProvider from "./contexts/authContext";
+import LoginPage from "./pages/loginPage";
+import SignupPage from "./pages/signupPage";
 
 
 
@@ -42,6 +44,7 @@ const App = () => {
       <CssBaseline />
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
+        <AuthContextProvider>
           <SiteHeader />
           <MoviesContextProvider>
             <Routes>
@@ -54,10 +57,13 @@ const App = () => {
               <Route path="/reviews/:id" element={<MovieReviewPage />} />
               <Route path="/movies/:id" element={<MoviePage />} />
               <Route path="/" element={<HomePage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignupPage />} />
               <Route path="*" element={<Navigate to="/" />} />
               <Route path="/reviews/form" element={<AddMovieReviewPage />} />
             </Routes>
           </MoviesContextProvider>
+          </AuthContextProvider>
         </BrowserRouter>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
