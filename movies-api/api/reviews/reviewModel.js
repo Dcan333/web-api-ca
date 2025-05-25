@@ -1,5 +1,4 @@
-// Create this file: movies-api/api/reviews/reviewModel.js
-
+//Create this file /api/reviews/reviewModel.js Mongoose schema for user reviews
 import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;

@@ -1,3 +1,4 @@
+//Create this file /src/pages Registration form with password validation, Integrates with AuthContext
 import { useContext, useState } from "react";
 import { AuthContext } from '../contexts/authContext';
 import { Link } from "react-router";

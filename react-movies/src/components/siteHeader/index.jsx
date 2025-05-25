@@ -1,4 +1,4 @@
-
+//Modify - Authentication context integration ,Conditional menu options based on auth status, Welcome message when logged in, Logout functionality
 import React, { useState, useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";

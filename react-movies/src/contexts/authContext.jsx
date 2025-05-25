@@ -1,3 +1,5 @@
+//Create this file /src/contexts/authContexts Authentication context with login/logout state management
+
 import { useState, createContext } from "react";
 import { login, signup } from "../api/movies-auth-api";
 

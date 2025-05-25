@@ -1,3 +1,4 @@
+//Create this file /src/pages Simple login form following lab pattern, Integrates with AuthContext
 import { useContext, useState } from "react";
 import { Navigate, useLocation } from "react-router";
 import { AuthContext } from '../contexts/authContext';

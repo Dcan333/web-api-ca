@@ -1,3 +1,4 @@
+//Modified - Added all additional TMDB API functions
 import fetch from 'node-fetch';
 
 export const getMovies = async () => {

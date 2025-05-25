@@ -1,3 +1,4 @@
+//Modify - AuthContextProvider wrapper, Login and Signup routes, Protected routes with ProtectedRoute component, All necessary imports (oh god the imports)
 
 import React from "react";
 import { createRoot } from "react-dom/client";
