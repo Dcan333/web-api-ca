@@ -12,7 +12,7 @@ import { useNavigate } from "react-router";
 import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { AuthContext } from "../contexts/authContext"; 
+import { AuthContext } from "../../contexts/authContext"; 
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
@@ -24,7 +24,7 @@ const SiteHeader = ({ history }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   
   const navigate = useNavigate();
-  // const context = useContext(AuthContext);
+  const context = useContext(AuthContext);
 
   // Different menu options based on authentication status
   const menuOptions = context.isAuthenticated ? [
