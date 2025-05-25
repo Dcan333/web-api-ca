@@ -75,12 +75,40 @@ const ReviewForm = ({ movie }) => {
         navigate("/movies/favorites");
     };
 
-    const onSubmit = (review) => {
+    const onSubmit = async (review) => {
         review.movieId = movie.id;
+        review.movieTitle = movie.title;
         review.rating = rating;
-        // console.log(review);
+
+        // Save to context (existing functionality - keeps working)
         context.addReview(movie, review);
-        setOpen(true); // NEW
+
+        // ALSO save to your Reviews API (NEW functionality)
+        try {
+            const response = await fetch('http://localhost:8080/api/reviews', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    movieId: movie.id,
+                    movieTitle: movie.title,
+                    author: review.author,
+                    content: review.review, // Note: form field is 'review' but API expects 'content'
+                    rating: rating
+                })
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                console.log('Review saved to database!');
+            }
+        } catch (error) {
+            console.error('Error saving review to API:', error);
+            // Still works even if API fails - graceful degradation
+        }
+
+        setOpen(true);
     };
 
 
